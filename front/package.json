@@ -1,0 +1,25 @@
+{
+  "name": "pastaknot_poc2021",
+  "version": "1.0.0",
+  "description": "A web application with tips for student meals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmedFr/PastaKnot_Poc2021.git"
+  },
+  "author": "Baptiste Barbotin, Amoz Pay, Arthur Nordmann, Victor Guyot, Ahmed Abouelleil, Jules Colas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AhmedFr/PastaKnot_Poc2021/issues"
+  },
+  "homepage": "https://github.com/AhmedFr/PastaKnot_Poc2021#readme",
+  "dependencies": {
+    "react": "^17.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.5"
+  }
+}
