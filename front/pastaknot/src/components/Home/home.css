@@ -2,7 +2,8 @@
     position: relative;
     width: 100%;
 	height: 8vh;
-    box-shadow: 0px 5px 10px rgb(107, 107, 107);
+    background-color: #2c2c2c;
+    box-shadow: 0px 5px 10px #363636;
     z-index: 1;
     /* background-color: rgb(0, 0, 0); */
 }
@@ -22,7 +23,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Courier New', monospace;
-    color: #ff6f61;
+    color: #ff6f61; 
 }
 
 .button{
@@ -34,7 +35,7 @@
 .button1 {
     padding: 10px 10px;
     font-size: 16px;
-    background-color: white; 
+    background-color: #2c2c2c; 
     color: #ff6f61; 
     border: 2px solid #ff6f61;
     transition-duration: 0.4s;
@@ -52,8 +53,8 @@
 
 section{
     width: 100%;
-	height: 100vh;
-    background-color: #efefef;
+	height: 100%;
+    background-color: #343434;
     z-index: 2;
 }
 
@@ -65,17 +66,22 @@ section{
     width: 60%;
     margin: auto;
     padding-top: 20px;
-    background-color: #fff;
+}
+
+.itemlink{
+    margin: 20px 20px 50px 20px;
+    text-decoration: none;
+    color: #ff6f61;
 }
 
 .item{
     position: relative;
-    margin: 20px 20px 50px 20px;
     width: 280px;
 	height: 350px;
-    background-color: red;
+    /* background-color: red; */
     border-radius: 40px;
-    box-shadow: 0px 5px 10px rgb(107, 107, 107);
+    /* box-shadow: 0px 5px 10px #ffffff; */
+    background-color: #3e3e3e;;
     overflow:hidden
 }
 
@@ -88,9 +94,8 @@ section{
 .item h1{
     position: relative;
     text-align: center;
-    height: 100%;
-    transform: translate(0%, -4px);
-    background-color: white;
+    /* height: 100%; */
+    transform: translate(0%, 10px);
 }
 
 #Pasta {
