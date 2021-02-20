@@ -19,12 +19,12 @@ server.get("/Pastaknot/login", async function(req: Request, res: Response) {
     res.send("Bad req");
   }
   else {
-    if (await createClient(req.body.username, req.body.password) == 400) {
+    user = await createClient(req.body.username, req.body.password);
+    if (user === 400) {
         user = await findClientByName(req.body.username, req.body.password);
     }
     if (typeof user == 'object') {
-      sendUser(user);
-      res.status(200);
+      res.sendStatus(200).send(user);
     } else {
       res.sendStatus(user);
     }
@@ -34,19 +34,18 @@ server.get("/Pastaknot/login", async function(req: Request, res: Response) {
 server.get("/Pastaknot/home", async function(req: Request, res: Response) {
   var categoryArray:Category[];
   categoryArray = await getCategories();
-  dispCategories(categoryArray);
+  res.sendStatus(200).send(categoryArray);
   });
 
 server.post("/Pastaknot/:category/createTip", async function(req: Request, res: Response) {
-  var tips: Tips;
-  tips.idClient = req.body.idClient;
-  tips.date = new Date;
-  tips.title = req.body.title;
-  tips.category = req.params.category;
-  tips.content = req.body.content;
-  await createTip(tips);
-  sendtips(tips);
-  res.status(200);
+  var tip: Tips;
+  tip.idClient = req.body.idClient;
+  tip.date = new Date;
+  tip.title = req.body.title;
+  tip.category = req.params.category;
+  tip.content = req.body.content;
+  await createTip(tip);
+  res.status(200).send(tip);
 });
 
 server.post("/Pastaknot/:category/:tip/createComment", async function(req: Request, res: Response) {
@@ -54,16 +53,15 @@ server.post("/Pastaknot/:category/:tip/createComment", async function(req: Reque
   comment.idClient = req.body.idClient;
   comment.date = new Date;
   comment.content = req.body.content;
+  comment.idTip = req.body.idTip;
   await createComment(comment);
-  dispComment(comment);
-  res.status(200);
+  res.status(200).send(comment);
 });
 
 server.get("/Pastaknot/:category", async function(req: Request, res: Response) {
   var tipsArray:object[];
   tipsArray = await getAllTips(req.params.category);
-  dispTipsArray(tipsArray);
-  res.status(200);
+  res.status(200).send(tipsArray);
 });
 
 server.get("/Pastaknot/:category/:tips", async function(req: Request, res: Response) {
@@ -71,8 +69,7 @@ server.get("/Pastaknot/:category/:tips", async function(req: Request, res: Respo
   var commentArray:object[] | number;
   tips = await findTipByTitle(req.params.tips);
   commentArray = await getAllComments(tips.id);
-  dispTips(tips);
-  dispCommentArray(commentArray);
+  res.status(200).send(tips).send(commentArray);
 });
 
 server.listen(8080);

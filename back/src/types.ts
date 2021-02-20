@@ -10,8 +10,7 @@ export interface Clients {
 }
 
 export interface Comment {
-    id: number,
-    idTips: number,
+    idTip: number,
     idClient: number,
     content: string,
     date: Date,
