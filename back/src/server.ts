@@ -17,8 +17,8 @@ server.get("/Pastaknot/login", function(request, response) {
     response.send("Bad request");
   }
   else {
-    if (find_client(request.body.username, request.body.password) == 404) {
-      user = create_client(request.body.username, request.body.password);
+    if (await findClientByName(request.body.username, request.body.password) == 404) {
+      user = await create_client(request.body.username, request.body.password);
     } else {
       user = find_client(request.body.username, request.body.password);
     }
@@ -43,13 +43,14 @@ server.post("/Pastaknot/:category/createTips", function(request, response) {
   tips.title = request.body.title;
   tips.category = request.params.category;
   tips.content = request.body.content;
+  setTips(tips);
   sendtips(tips);
   response.status(200);
 });
 
 server.get("/Pastaknot/:category", function(request, response) {
   var tipsArray[]: Tips;
-  tipsArray = getTips();
+  tipsArray = getTips(req.params.category);
   dispTipsArray(tipsArray);
   response.status(200);
   
