@@ -4,9 +4,17 @@ import {Connection, BaseEntity, getManager, EntityManager} from "typeorm";
 import {getEnabledCategories} from "trace_events";
 import {connect} from '../server'
 
-export async function createTip(idClient: number, title: string, category: string, date: Date, content: string) {
+interface tipInterface {
+    idClient: number
+    title: string
+    category: string
+    date: Date
+    content: string
+}
+
+export async function createTip(tip: tipInterface) {
     let likes = 0
-    let newTip: object = new Tip(idClient, content, date, title, category, likes)
+    let newTip: object = new Tip(tip.idClient, tip.content, tip.date, tip.title, tip.category, likes)
     const clientRepo = await connect.getRepository(Tip)
     await clientRepo.save(newTip)
 }
