@@ -1,7 +1,8 @@
 import express, { Request, Response } from 'express'
 import cookieParser from 'cookie-parser'
 import bodyParser from  'body-parser'
-import { Clients, Tips} from './types'
+import { Clients, Tips, Category, Comment } from './types'
+import { getTips } from './getTips';
 //import donnée_db from 'database'
 
 var server = express();
@@ -36,15 +37,31 @@ server.get("/Pastaknot/home", function(request, response) {
   });
 
 server.post("/Pastaknot/:category/createTips", function(request, response) {
-  var
-    // get si il est connecter, les tips, nb de like, nb de comment de la db
+  var tips: Tips;
+  tips.idClient = request.body.idClient;
+  tips.date = new Date;
+  tips.title = request.body.title;
+  tips.category = request.params.category;
+  tips.content = request.body.content;
+  sendtips(tips);
+  response.status(200);
 });
-  // get si il est connecter, les catégories, nb de tips? de la database
 
 server.get("/Pastaknot/:category", function(request, response) {
+  var tipsArray[]: Tips;
+  tipsArray = getTips();
+  dispTipsArray(tipsArray);
+  response.status(200);
+  
   // get si il est connecter, les tips, nb de like, nb de comment de la db
 });
 server.get("/Pastaknot/:category/:tips", function(request, response) {
+  var tips: Tips;
+  var commentArray[]: Comment;
+  tips = getSingleTips();
+  commentArray = getcomment(tips.id);
+  dispTips(tips);
+  dispCommentArray(commentArray);
   // get si il est connecter, les tips, nb de like, nb de comment de la db
 });
 
