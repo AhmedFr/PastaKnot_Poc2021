@@ -16,6 +16,10 @@ export default function Tipsfunc() {
             <h1>{tipsData.title}</h1>
             <p>{tipsData.content}</p>
         </div>
+        <div>
+            <p>Like: {tipsData.likes}</p>
+            <p>Commentaire: </p>
+        </div>
     </section>
     </div>
     );
