@@ -8,6 +8,13 @@ export interface Clients {
     name: string;
     password: string;
 }
+export interface Comment {
+    id: number,
+    idTips: number,
+    idClient: number,
+    content: string,
+    date: Date,
+}
 
 export interface Tips {
     id: number;
