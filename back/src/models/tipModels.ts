@@ -25,6 +25,19 @@ export async function unlikeTip(idClient: number, idTip: number, conn: Connectio
 }
 
 */
+
+export async function getAllTips(category: string) {
+    const connect = await dbInitialize()
+    const tipRepo = await connect.getRepository(Tip)
+    const tipData = await tipRepo.find({
+        select: ["id", "idClient", "title", "category", "content", "date"],
+        where: {
+            "category" : category
+        }
+    })
+    return tipData
+}
+
 export async function findTipByTitle(title: string) {
     const connect = await dbInitialize()
     const tipRepo = await connect.getRepository(Tip)
@@ -34,7 +47,9 @@ export async function findTipByTitle(title: string) {
             "title" : title
         }
     })
-    return tipData
+    if (tipData.length === 0)
+        return 404
+    return tipData[0]
 }
 
 export async function findTipById(id: number) {
@@ -46,5 +61,7 @@ export async function findTipById(id: number) {
             "id" : id
         }
     })
-    return tipData
+    if (tipData.length === 0)
+        return 404
+    return tipData[0]
 }
