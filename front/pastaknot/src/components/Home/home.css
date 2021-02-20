@@ -78,9 +78,7 @@ section{
     position: relative;
     width: 280px;
 	height: 350px;
-    /* background-color: red; */
     border-radius: 40px;
-    /* box-shadow: 0px 5px 10px #ffffff; */
     background-color: #3e3e3e;;
     overflow:hidden
 }
@@ -96,13 +94,6 @@ section{
     text-align: center;
     /* height: 100%; */
     transform: translate(0%, 10px);
-}
-
-#Pasta {
-    /* background-image: url("https://assets.afcdn.com/recipe/20191212/104155_w350h250c1cx2960cy2000.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; */
 }
 
 .backLoginForm{
@@ -168,4 +159,11 @@ section{
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
     font-size: 40px;
+}
+
+@media (max-width: 1080px) {
+
+    .category{
+        justify-content: center;
+    }
 }
