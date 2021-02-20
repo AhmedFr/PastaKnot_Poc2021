@@ -18,7 +18,7 @@ export class Comment extends BaseEntity {
     @Column()
     date: Date;
 
-    constructor(name: string, idTip: number, idClient: number, content: string, date: Date) {
+    constructor(idTip: number, idClient: number, content: string, date: Date) {
         super(),
             this.idTip = idTip,
             this.idClient = idClient,
