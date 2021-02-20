@@ -1,7 +1,11 @@
 import express, { request } from 'express'
 import cookieParser from 'cookie-parser'
 import bodyParser from  'body-parser'
+import promise from "pg-promise"
+import pgp from "pg-promise"
+//import donnée_db from 'database'
 
+var db = pgp("postgres://username:password@host:port/database");
 var server = express();
 server.use(bodyParser.json())
 server.use(cookieParser());
@@ -85,6 +89,7 @@ server.post("/Pastaknot/register", function(request, response) {
     response.send("Bad request");
   }
   else {
+    db.
     //new in database with request.body.password and request.body.username
   }
 });
