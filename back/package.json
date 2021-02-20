@@ -4,6 +4,7 @@
   "description": "A web application with tips for student meals",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node src/index.ts",
     "dev:db": "docker run --name ${DB_NAME} -e POSTGRES_PASSWORD=${DB_PASS} -e POSTGRES_USER=${DB_USER} -e POSTGRES_DB=${DB_NAME} -p ${DB_PORT}:${DB_PORT} -d postgres:alpine",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/AhmedFr/PastaKnot_Poc2021#readme",
   "dependencies": {
+    "env-var": "^7.0.0",
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "pg-god": "^1.0.11",
@@ -26,6 +28,7 @@
     "typeorm": "^0.2.31"
   },
   "devDependencies": {
+    "@types/node": "^14.14.31",
     "typescript": "^4.1.5"
   }
 }
