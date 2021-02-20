@@ -8,13 +8,24 @@ export async function createClient(name: string, password: string, conn: Connect
     await clientRepo.save(newClient)
 }
 
-export async function findClient(name: string, password: string, conn: Connection) {
+export async function findClientByName(name: string, password: string, conn: Connection) {
     const clientRepo = await conn.getRepository(Client)
     const clientData = await clientRepo.find({
-        select: ["name", "password", "id"],
+        select: ["id", "name", "password"],
         where: {
             "name" : name,
             "password": password
+        }
+    })
+    return clientData
+}
+
+export async function findClientById(id: number, conn: Connection) {
+    const clientRepo = await conn.getRepository(Client)
+    const clientData = await clientRepo.find({
+        select: ["id", "name", "password"],
+        where: {
+            "id" : id
         }
     })
     return clientData

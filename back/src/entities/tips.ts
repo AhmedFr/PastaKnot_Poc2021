@@ -24,7 +24,7 @@ export class Tip extends BaseEntity {
     @Column()
     content: string;
 
-    constructor(name: string,  idClient: number, content: string, date: Date, title: string, category: string, likes: number) {
+    constructor(idClient: number, content: string, date: Date, title: string, category: string, likes: number) {
         super(),
             this.idClient = idClient,
             this.title = title,
