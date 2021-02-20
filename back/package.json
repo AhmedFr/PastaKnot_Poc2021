@@ -20,6 +20,8 @@
   "homepage": "https://github.com/AhmedFr/PastaKnot_Poc2021#readme",
   "dependencies": {
     "env-var": "^7.0.0",
+    "@types/cookie-parser": "^1.4.2",
+    "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "pg-god": "^1.0.11",
