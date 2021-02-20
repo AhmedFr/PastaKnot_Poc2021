@@ -17,7 +17,6 @@ const connectionParameters = {
 }
 
 export async function dbInitialize(): Promise<Connection> {
-    console.log(connectionParameters)
     try {
         return  createConnection(connectionParameters)
     } catch (error) {
