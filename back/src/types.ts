@@ -1,3 +1,8 @@
+export interface Category {
+    id: number;
+    name: string;
+}
+
 export interface Clients {
     id: number;
     name: string;
@@ -7,7 +12,7 @@ export interface Clients {
 export interface Tips {
     id: number;
     title: string;
-    category: number;
+    category: string;
     idClient: number;
     date: Date;
     content: string;
