@@ -1,20 +1,14 @@
 export interface Clients {
-    ID: number;
+    id: number;
     name: string;
-    user: string;
     password: string;
 }
 
-export interface Categories {
-    ID: number;
-    name: string;
-}
-
 export interface Tips {
-    ID: number;
+    id: number;
     title: string;
-    IDcategorie: number;
-    IDclient: number;
+    category: number;
+    idClient: number;
     date: Date;
     content: string;
     likes: number;
