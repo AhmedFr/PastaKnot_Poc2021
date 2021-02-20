@@ -15,10 +15,10 @@ server.get("/Pastaknot/home", function(request, response) {
   // get si il est connecter, les catégories, nb de tips? de la database
 });
 
-server.get("Pastaknot/50nuancedepasta", function(request, response) {
+server.get("/Pastaknot/50nuancedepasta", function(request, response) {
   // get si il est connecter, les tips, nb de like, nb de comment de la db
 });
-server.post("Pastaknot/50nuancedepasta", function(request, response) {
+server.post("/Pastaknot/50nuancedepasta", function(request, response) {
   if (!Object(request.body).length) {
     response.status(400);
     response.send("Bad request");
@@ -32,7 +32,7 @@ server.get("/Pastaknot/lesPlatsduRadin", function(request, response) {
   // get si il est connecter, les tips, nb de like, nb de comment de la db
 });
 
-server.post("Pastaknot/lesPlatsduRadin", function(request, response) {
+server.post("/Pastaknot/lesPlatsduRadin", function(request, response) {
   if (!Object(request.body).length) {
     response.status(400);
     response.send("Bad request");
@@ -46,7 +46,7 @@ server.get("/Pastaknot/antiBidesaBiere", function(request, response) {
   // get si il est connecter, les tips, nb de like, nb de comment de la db
 });
 
-server.post("Pastaknot/antibidesaBiere", function(request, response) {
+server.post("/Pastaknot/antibidesaBiere", function(request, response) {
   if (!Object(request.body).length) {
     response.status(400);
     response.send("Bad request");
@@ -61,7 +61,7 @@ server.get("/Pastaknot/raptaQuirhallas", function(request, response) {
 
 });
 
-server.post("Pastaknot/raptaQuirhallas", function(request, response) {
+server.post("/Pastaknot/raptaQuirhallas", function(request, response) {
   if (!Object(request.body).length) {
     response.status(400);
     response.send("Bad request");
