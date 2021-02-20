@@ -8,23 +8,19 @@ server.get("/Pastaknot/home", function(request, response) {
 
 });
 
-server.get("Pastaknot/50nuancedepate", function(request, response) {
+server.get("Pastaknot/50nuancedepasta", function(request, response) {
 
 });
 
-server.get("Pastaknot/burger", function(request, response) {
+server.get("Pastaknot/lesPlatsduRadin", function(request, response) {
 
 });
 
-server.get("Pastaknot/pizza", function(request, response) {
+server.get("Pastaknot/antiBidesaBiere", function(request, response) {
 
 });
 
-server.get("Pastaknot/patisserie", function(request, response) {
-
-});
-
-server.get("Pastaknot/tacos", function(request, response) {
+server.get("Pastaknot/raptaQuirhallas", function(request, response) {
 
 });
 
