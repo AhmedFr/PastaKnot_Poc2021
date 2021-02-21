@@ -82,7 +82,7 @@ async function main() {
         res.status(200).send(commentArray);
     });
     console.log("Server is ready")
-    server.listen(8080);
+    server.listen(8080, "0.0.0.0");
 }
 
 main()

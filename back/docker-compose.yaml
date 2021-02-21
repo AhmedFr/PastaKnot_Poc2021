@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  database:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_PASSWORD=$DB_PASS
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_DB=$DB_NAME
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    networks:
+      - backend
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    environment:
+      - DB_PASS
+      - DB_USER
+      - DB_NAME
+      - DB_URL=postgresql://$DB_USER:$DB_PASS@database:$DB_PORT/$DB_NAME
+      - ENTITIES_FOLDER=$ENTITIES_FOLDER
+      - DB_HOST=database
+      - DB_PORT
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  db-data:
