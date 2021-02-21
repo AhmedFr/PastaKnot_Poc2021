@@ -93,9 +93,14 @@ export function Tipsfunc() {
             <div className="contentDiv">
                 <p>{tipsData.content}</p>
             </div>
-            <div>
-                <AiOutlineHeart className="iconHeart"/>
-                <p>{tipsData.likes}</p>
+            <div className="interaction">
+                <div className="commentaire">
+                <input type="texte" placeholder="Commentaire"/><br/>
+                </div>
+                <div className="likes">
+                    <AiOutlineHeart className="iconHeart"/>
+                    <p>{tipsData.likes}</p>
+                </div>
             </div>
         </div>
     </div>
