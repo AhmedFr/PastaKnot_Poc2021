@@ -66,8 +66,8 @@ async function main() {
         var comment: Comment = {
             idClient: req.body.idClient, date: new Date, content: req.body.content, idTip: req.body.idTip
         };
-        await createComment(comment, connect);
-        res.status(200).send(comment);
+        const newComment = await createComment(comment, connect);
+        res.status(200).send(newComment);
     });
 
     server.get("/categories/:category", async function (req: Request, res: Response) {

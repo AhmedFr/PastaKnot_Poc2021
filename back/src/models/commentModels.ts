@@ -14,6 +14,7 @@ export async function createComment(comment: commentInterface, connect: Connecti
     let newComment: object = new Comment(comment.idTip, comment.idClient, comment.content, comment.date)
     const commentRepo = await connect.getRepository(Comment)
     await commentRepo.save(newComment)
+    return newComment
 }
 
 export async function getAllComments(idTip: number, connect: Connection) {
