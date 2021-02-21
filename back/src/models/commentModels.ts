@@ -2,7 +2,6 @@ import {Comment} from "../entities/comments";
 import {dbInitialize} from "../appDatabase";
 import {Connection, BaseEntity, getManager, EntityManager} from "typeorm";
 import {getEnabledCategories} from "trace_events";
-import {connect} from '../server'
 
 interface commentInterface {
     idTip: number
@@ -11,13 +10,14 @@ interface commentInterface {
     date: Date
 }
 
-export async function createComment(comment: commentInterface) {
+export async function createComment(comment: commentInterface, connect: Connection) {
     let newComment: object = new Comment(comment.idTip, comment.idClient, comment.content, comment.date)
     const commentRepo = await connect.getRepository(Comment)
     await commentRepo.save(newComment)
+    return newComment
 }
 
-export async function getAllComments(idTip: number) {
+export async function getAllComments(idTip: number, connect: Connection) {
     const commentRepo = await connect.getRepository((Comment))
     const commentsData = await commentRepo.find({
         select: ["idTip", "idClient", "content", "date"],
@@ -28,7 +28,7 @@ export async function getAllComments(idTip: number) {
     return commentsData
 }
 
-export async function findCommentById(id: number, idTip: number) {
+export async function findCommentById(id: number, idTip: number, connect: Connection) {
     const commentRepo = await connect.getRepository((Comment))
     const commentsData = await commentRepo.find({
         select: ["idTip", "idClient", "content", "date"],
