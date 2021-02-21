@@ -1,10 +1,8 @@
 export interface Category {
-    id: number;
     name: string;
 }
 
 export interface Clients {
-    id: number;
     name: string;
     password: string;
 }
@@ -17,7 +15,6 @@ export interface Comment {
 }
 
 export interface Tips {
-    id: number;
     title: string;
     category: string;
     idClient: number;

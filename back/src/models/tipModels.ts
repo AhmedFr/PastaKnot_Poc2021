@@ -2,7 +2,6 @@ import {Tip} from "../entities/tips";
 import {dbInitialize} from "../appDatabase";
 import {Connection, BaseEntity, getManager, EntityManager} from "typeorm";
 import {getEnabledCategories} from "trace_events";
-import {connect} from '../server'
 
 interface tipInterface {
     idClient: number
@@ -12,7 +11,7 @@ interface tipInterface {
     content: string
 }
 
-export async function createTip(tip: tipInterface) {
+export async function createTip(tip: tipInterface, connect: Connection) {
     let likes = 0
     let newTip: object = new Tip(tip.idClient, tip.content, tip.date, tip.title, tip.category, likes)
     const clientRepo = await connect.getRepository(Tip)
@@ -34,7 +33,7 @@ export async function unlikeTip(idClient: number, idTip: number, conn: Connectio
 
 */
 
-export async function getAllTips(category: string) {
+export async function getAllTips(category: string, connect: Connection) {
     const tipRepo = await connect.getRepository(Tip)
     const tipData = await tipRepo.find({
         select: ["id", "idClient", "title", "category", "content", "date"],
@@ -45,7 +44,7 @@ export async function getAllTips(category: string) {
     return tipData
 }
 
-export async function findTipByTitle(title: string) {
+export async function findTipByTitle(title: string, connect: Connection) {
     const tipRepo = await connect.getRepository(Tip)
     const tipData = await tipRepo.find({
         select: ["id", "idClient", "title", "category", "content", "date"],
@@ -58,7 +57,7 @@ export async function findTipByTitle(title: string) {
     return tipData[0]
 }
 
-export async function findTipById(id: number) {
+export async function findTipById(id: number, connect: Connection) {
     const tipRepo = await connect.getRepository(Tip)
     const tipData = await tipRepo.find({
         select: ["id", "idClient", "title", "category", "content", "date"],

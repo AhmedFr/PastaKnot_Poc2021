@@ -1,9 +1,8 @@
 import {Client} from "../entities/clients";
 import {dbInitialize} from "../appDatabase";
 import {Connection, BaseEntity, getManager, EntityManager} from "typeorm";
-import {connect} from '../server'
 
-export async function createClient(name: string, password: string) {
+export async function createClient(name: string, password: string, connect: Connection) {
     let newClient: object = new Client(name, password)
     const clientRepo = await connect.getRepository(Client)
     let alreadyExists = await clientRepo.find({
@@ -12,13 +11,15 @@ export async function createClient(name: string, password: string) {
             "name": name
         }
     })
-    if (alreadyExists.length === 0)
+    if (alreadyExists.length === 0) {
         await clientRepo.save(newClient)
+        return newClient
+    }
     else
         return 400
 }
 
-export async function findClientByName(name: string, password: string) {
+export async function findClientByName(name: string, password: string, connect: Connection) {
     const clientRepo = await connect.getRepository(Client)
     const clientData = await clientRepo.find({
         select: ["id", "name", "password"],
@@ -34,7 +35,7 @@ export async function findClientByName(name: string, password: string) {
     return clientData[0]
 }
 
-export async function findClientById(id: number) {
+export async function findClientById(id: number, connect: Connection) {
     const clientRepo = await connect.getRepository(Client)
     const clientData = await clientRepo.find({
         select: ["id", "name", "password"],
