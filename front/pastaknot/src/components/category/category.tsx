@@ -11,7 +11,7 @@ export default function Categoryfunc(): JSX.Element {
     let tip2: Tips = {id: 2, title: 'Test2', IDClient: 2, date: new Date('2010/05/31'), likes: 360};
     let tip3: Tips = {id: 3, title: 'Test3', IDClient: 5, date: new Date('2038/11/19'), likes: 120};
     let tip4: Tips = {id: 4, title: 'Test4', IDClient: 3, date: new Date('2025/04/28'), likes: 860};
-    let tips: Array<Tips> = {tip, tip2, tip3, tip4};
+    let tips: Array<Tips> = [tip, tip2, tip3, tip4];
     return (
         <div>
             <header>
@@ -21,9 +21,6 @@ export default function Categoryfunc(): JSX.Element {
                 <div>
                     <h1>{cateData.title}</h1>
                     <p>{cateData.content}</p>
-                    for (let index = 0; index < tips; index++) {
-                      <p>tips[index].name</p>
-                    }
                 </div>
             </section>
         </div>
