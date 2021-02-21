@@ -12,7 +12,6 @@
     height: 100%;
     background-color: #ffffff;
     padding-top: 80px;
-    justify-content: center;
     text-align: center;
 }
 
@@ -26,4 +25,33 @@
     margin-top: 60px;
     font-family: 'Courier New', monospace;
     position: relative;
+}
+
+.interaction{
+    position: relative;
+    margin: 0% 20%;
+}
+
+.likes{
+    margin-top: 20px;
+    font-family: 'Courier New', monospace;
+    position: relative;
+}
+
+.likes .iconHeart{
+    display: inline;
+    transition-duration: 0.4s;
+    font-size: 25px;
+}
+
+.likes .iconHeart:hover{
+    color: #ff1500;
+}
+
+.interaction input{
+    margin-top: 20px;
+    border-color: rgb(122, 122, 122);
+    border: 1px solid;
+    height: 70px;
+    width: 100%;
 }
