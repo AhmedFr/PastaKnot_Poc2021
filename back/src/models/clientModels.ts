@@ -16,7 +16,7 @@ export async function createClient(name: string, password: string, connect: Conn
         return newClient
     }
     else
-        return 400
+        return 401
 }
 
 export async function findClientByName(name: string, password: string, connect: Connection) {
@@ -30,7 +30,7 @@ export async function findClientByName(name: string, password: string, connect: 
     if (clientData.length === 0)
         return 404
     if (clientData[0].password != password) {
-        return 400
+        return 401
     }
     return clientData[0]
 }

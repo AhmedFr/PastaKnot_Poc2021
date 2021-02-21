@@ -16,6 +16,7 @@ export async function createTip(tip: tipInterface, connect: Connection) {
     let newTip: object = new Tip(tip.idClient, tip.content, tip.date, tip.title, tip.category, likes)
     const clientRepo = await connect.getRepository(Tip)
     await clientRepo.save(newTip)
+    return newTip
 }
 /*              WORK IN PROGRESS
 export async function likeTip(idClient: number, idTip: number, conn: Connection) {
