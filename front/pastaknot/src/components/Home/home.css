@@ -61,9 +61,9 @@ section{
 }
 
 .itemlink{
-    margin: 20px 20px 40px 20px;
+    margin: 20px 10px 40px 20px;
     text-decoration: none;
-    color: #ff6f61;
+    color: #ff3c00;
 }
 
 .item{
@@ -80,16 +80,19 @@ section{
 }
 
 .item img{
+    top: -50px;
     width: 100%;
 	height: auto;
     resize: none;
 }
 
 .item h1{
-    position: relative;
+    position: absolute;
+    top: 10%;
+    left: 50%;
     text-align: center;
-    /* height: 100%; */
-    transform: translate(0%, 10px);
+    transform: translate(-50%);
+    width: 100%;
 }
 
 .backLoginForm{
