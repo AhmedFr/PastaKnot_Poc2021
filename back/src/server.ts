@@ -43,7 +43,7 @@ async function main() {
       */
 
 
-    server.post("/categories/:category/createTip", async function (req: Request, res: Response) {
+    server.post("/createTip/:category", async function (req: Request, res: Response) {
         var tip: Tips = {
             idClient: req.body.idClient,
             date: new Date,
@@ -62,7 +62,7 @@ async function main() {
         }
     });
 
-    server.post("/categories/:category/:tip/createComment", async function (req: Request, res: Response) {
+    server.post("/createComment", async function (req: Request, res: Response) {
         var comment: Comment = {
             idClient: req.body.idClient, date: new Date, content: req.body.content, idTip: req.body.idTip
         };
@@ -76,11 +76,9 @@ async function main() {
         res.status(200).send(tipsArray);
     });
 
-    server.get("/categories/:category/:tips", async function (req: Request, res: Response) {
-        var tips: any;
+    server.get("/categories/:category/tip", async function (req: Request, res: Response) {
         var commentArray: object[] | number;
-        tips = await findTipByTitle(req.params.tips, connect);
-        commentArray = await getAllComments(tips.id, connect);
+        commentArray = await getAllComments(req.body.idTip, connect);
         res.status(200).send(commentArray);
     });
     console.log("Server is ready")
