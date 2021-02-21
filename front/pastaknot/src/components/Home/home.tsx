@@ -68,39 +68,39 @@ export function Home() {
     <section>
         <div className="container category">
             <Cate_Item
-            link="http://localhost:3000/plat_du_pauvre"
+            link="http://localhost:3000/les-plats-du-pauvre"
             image="https://assets.afcdn.com/recipe/20191212/104155_w350h250c1cx2960cy2000.jpg"
-            messageText="name of the dish"
+            messageText="Les plats du pauvre"
             />
 
             <Cate_Item
-            link="https://www.marmiton.org/"
+            link="http://localhost:3000/pour-soirée-chill"
             image="https://assets.afcdn.com/recipe/20191212/104155_w350h250c1cx2960cy2000.jpg"
-            messageText="name of the dish"
+            messageText="Pour des soirées chill"
             />
 
             <Cate_Item
-            link="https://www.marmiton.org/"
+            link="http://localhost:3000/pour-se-peter-la-pense"
             image="https://assets.afcdn.com/recipe/20191212/104155_w350h250c1cx2960cy2000.jpg"
-            messageText="name of the dish"
+            messageText="Pour se peter la pense"
             />
 
             <Cate_Item
-            link="https://www.marmiton.org/"
+            link="http://localhost:3000/les-plats-express"
             image="https://assets.afcdn.com/recipe/20191212/104155_w350h250c1cx2960cy2000.jpg"
-            messageText="name of the dish"
+            messageText="Les plats express"
             />
 
             <Cate_Item
-            link="https://www.marmiton.org/"
+            link="http://localhost:3000/Les-desserts-du-chef"
             image="https://assets.afcdn.com/recipe/20191212/104155_w350h250c1cx2960cy2000.jpg"
-            messageText="name of the dish"
+            messageText="Les desserts du chef"
             />
 
             <Cate_Item
-            link="https://www.marmiton.org/"
+            link="http://localhost:3000/le-bar-à-cocktail"
             image="https://assets.afcdn.com/recipe/20191212/104155_w350h250c1cx2960cy2000.jpg"
-            messageText="name of the dish"
+            messageText="Le bar à cocktail"
             />
         </div>
     </section>
